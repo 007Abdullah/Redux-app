@@ -1,10 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { incrementAction, decrementAction } from './Action';
 
-export default function CounterInput(props) {
+export default function CounterInput() {
+    const dispatch = useDispatch();
     return (
         <React.Fragment>
-            <button onClick={() => props.setCounter(props.counter + 1)}>+</button>
-            <button onClick={() => props.setCounter(props.counter - 1)}>-</button>
+            <button onClick={() => dispatch(incrementAction())}>+</button>
+            <button onClick={() => dispatch(decrementAction())}>-</button>
         </React.Fragment>
     )
 }
